@@ -1,0 +1,133 @@
+{% extends "global/Page.html" %}
+
+{% load otree %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+
+        <div class="container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+              
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Los Angeles" style="width:100%;">
+                    </div>
+              
+                    <div class="item">
+                      <img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Chicago" style="width:100%;">
+                    </div>
+                  
+                    <div class="item">
+                      <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="New york" style="width:100%;">
+                    </div>
+                  </div>
+              
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+              
+
+<div class="container">
+    <p>
+    <b><font size="2" color="darkred"> PRIVATE ROOM IN HOUSE</font></b>
+      <br>
+    <b><font size="6">Cozy Room in City Center</font></b>
+  </p>
+<br>
+      <font size="3">Karlsruhe, BW, Germany</font>
+      <img src="https://img.icons8.com/windows/64/000000/user-male.png" align="right" />
+      <br>
+      <br>
+      <br>
+  <p>
+      <font size="2">Enter your travel dates to see the total price per night.</font>
+  </p>
+<hr>
+<div class="container">
+     <div class="media">
+      <div class="media-left media-top">
+        <img src="https://img.icons8.com/material-outlined/32/000000/exterior.png" class="media-object" style="width:20px">
+      </div>
+      <div class="media-body">
+        <h5 class="media-heading"><b> Private room in house</b></h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+       </div>
+    </div>
+    <hr>
+    <div class="media">
+      <div class="media-left media-top">
+        <img src="https://img.icons8.com/windows/32/000000/espresso-cup.png" class="media-object" style="width:20px">
+      </div>
+      <div class="media-body">
+        <h5 class="media-heading"><b>Breakfast</b></h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, s aliqua.</p>
+       </div>
+    </div>
+    <hr>
+    <div class="media">
+      <div class="media-left media-top">
+        <img src="https://img.icons8.com/windows/32/000000/marker.png" class="media-object" style="width:20px">
+      </div>
+      <div class="media-body">
+        <h5 class="media-heading"><b>Great location</b></h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, .</p>
+       </div>
+    </div>
+    <hr>
+    <div class="media">
+        <div class="media-left media-top">
+          <img src="https://img.icons8.com/windows/32/000000/key-security.png" class="media-object" style="width:20px">
+        </div>
+        <div class="media-body">
+          <h5 class="media-heading"><b>Great check-in experience</b></h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, .</p>
+         </div>
+      </div>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <hr>
+</div>
+</div>
+</body>
+</html>
+
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">Finish this section</button>
+
+{% endblock %}

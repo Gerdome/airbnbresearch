@@ -1,5 +1,7 @@
 {% extends "global/Page.html" %}
+
 {% load otree %}
+
 
 {% block content %}
 
@@ -22,7 +24,10 @@
   </style>
 </head>
 <body>
-  <iframe src="http://ec2-3-122-225-201.eu-central-1.compute.amazonaws.com:8081/index.html" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' style="height:350px;width:100%;border:none;overflow:hidden;"></iframe> 
+  <iframe src="http://ec2-3-122-225-201.eu-central-1.compute.amazonaws.com:8081/index.html" 
+  onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' 
+  style="height:350px;width:100%;border:none;overflow:hidden;" 
+  ></iframe> 
 <div class="container">
     <p>
     <b><font size="2" color="darkred"> PRIVATE ROOM IN HOUSE</font></b>
@@ -90,6 +95,8 @@
 
 
 
-    {% next_button %}
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">Finish this section</button>
+
+
 
 {% endblock %}

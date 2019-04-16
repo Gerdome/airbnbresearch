@@ -28,3 +28,11 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     name = models.StringField()
     age = models.IntegerField()
+
+    GENDER = (
+    ('M', 'Male'),
+    ('F', 'Female'),
+    )
+
+    gender = models.models.CharField(max_length=20, choices=GENDER, default='M')
+    

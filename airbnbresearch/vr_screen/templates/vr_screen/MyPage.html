@@ -1,16 +1,27 @@
 {% extends "global/Page.html" %}
+
 {% load otree %}
 
 {% block title %}
-    Enter your information
+    Introduction
 {% endblock %}
 
 {% block content %}
 
-    Please enter the following information.
+    <b>This is the description of our Experiment.</b>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
+    <br> <br>
+
+    We kindly ask you to enter the following information. However, It is not mandatory to fill in the information and you can also skip this section and continue with the experiment.
+    <br>
+
+    <b>
     {% formfields %}
+    </b>
 
-    {% next_button %}
+    <br><br><br>
+
+    <button class="otree-btn-next btn btn-primary next-button otree-next-button">Check out our Air BnB</button>
 
 {% endblock %}
