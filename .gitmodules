@@ -1,0 +1,3 @@
+[submodule "airbnbresearch/react360"]
+	path = airbnbresearch/react360
+	url = https://github.com/Gerdome/react360.git

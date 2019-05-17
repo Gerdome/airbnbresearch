@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-  <iframe src="http://ec2-52-29-174-150.eu-central-1.compute.amazonaws.com:8081/index.html" 
+  <iframe src="http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8081/index.html" 
   onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' 
   style="height:350px;width:100%;border:none;overflow:hidden;" 
   ></iframe> 
@@ -41,10 +41,10 @@
       <br>
       <br>
   <p>
-      <font size="2">Enter your travel dates to see the total price per night.</font>
+      <font size="2">Enter your travel dates to see the total price per night. Test Test</font>
   </p>
 <hr>
-<div class="container">
+<div class="container" id="demo">
      <div class="media">
       <div class="media-left media-top">
         <img src="https://img.icons8.com/material-outlined/32/000000/exterior.png" class="media-object" style="width:20px">
@@ -90,6 +90,23 @@
   <hr>
 </div>
 </div>
+
+<script>
+    document.getElementById("demo").addEventListener("click", trackEvent);
+    
+    function trackEvent() {
+        $.post("http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8010/api/event/create",
+        {
+          item: "Second Touch",
+          event: "Touch"
+        });
+    }
+    
+    function alertMessage () {
+      alert("Hello! I am an alert box!!");
+    }
+    </script>
+
 </body>
 </html>
 
