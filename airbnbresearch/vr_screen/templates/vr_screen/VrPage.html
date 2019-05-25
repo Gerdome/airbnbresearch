@@ -21,13 +21,64 @@
       color: white;
       padding: 15px;
     }
+    
+.holder{
+    width: 100%;
+    height:350px;
+    position:relative
+}
+.frame{
+    width:100%;
+    height:100%;
+}
+
+.backbutton{
+    position:fixed;
+    top: 90%;
+    width:100%;
+    visibility:hidden
+    }
+    
+.fullscreen{
+    background-color: grey;
+    border: 2px solid black;
+    }
+    
+#rcorners1 {
+  border-radius: 10px;
+  background: grey;
+  border: 2px solid black;
+  padding: 6px; 
+  width: 100px;
+}
+    
   </style>
 </head>
 <body>
-  <iframe src="http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8081/index.html" 
+
+
+<div class="holder">
+  <iframe 
+  class = "frame"
+  src="http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8081/index.html" 
+  id = 'frame'
   onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' 
   style="height:350px;width:100%;border:none;overflow:hidden;" 
   ></iframe> 
+    <div class="backbutton" id = 'back' align = 'center'>
+    
+   <b> <p text-align='center' id="rcorners1">Back</p> </b>
+
+    
+    </div>
+</div>
+
+
+  
+<div class = "fullscreen" id = "fullscreen" align = "center">
+FullScreen
+</div>
+  
 <div class="container">
     <p>
     <b><font size="2" color="darkred"> PRIVATE ROOM IN HOUSE</font></b>
@@ -93,6 +144,8 @@
 
 <script>
     document.getElementById("demo").addEventListener("click", trackEvent);
+    document.getElementById("fullscreen").addEventListener("click", changeFrame);
+    document.getElementById("back").addEventListener("click", backFrame);
     
     function trackEvent() {
         $.post("http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8010/api/event/create",
@@ -105,6 +158,32 @@
     function alertMessage () {
       alert("Hello! I am an alert box!!");
     }
+    
+    function changeFrame () {
+     frame = document.getElementById("frame")
+     frame.style.position = 'fixed';
+     frame.style.top = '0px';
+     frame.style.left = '0px';
+     frame.style.bottom = '0px';
+     frame.style.right = '0px';
+     frame.style.width = '100%';
+     frame.style.height = '100%';
+     
+     document.getElementById("back").style.visibility = 'visible';
+     
+    }
+    
+     function backFrame () {
+     
+     document.getElementById("back").style.visibility = 'hidden';
+     
+     frame = document.getElementById("frame")
+     frame.style.width = '100%';
+     frame.style.height = '350px';
+     frame.style.position = 'static';
+    }
+    
+    
     </script>
 
 </body>
