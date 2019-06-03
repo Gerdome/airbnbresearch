@@ -2,7 +2,6 @@
 
 {% load otree %}
 
-
 {% block content %}
 
 <!DOCTYPE html>
@@ -21,12 +20,24 @@
       color: white;
       padding: 15px;
     }
+    
+    .fullscreen{
+    background-color: grey;
+    border: 2px solid black;
+
+    }
+    
+    .holder{
+      padding-left: 15px;
+      padding-right: 15px;
+}
+    
   </style>
 </head>
 <body>
 
-
-        <div class="container">
+       <div class="container" 
+                  id = 'images'>
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
@@ -61,13 +72,18 @@
                   </a>
                 </div>
               </div>
-              
-
+ 
+<div class="holder">             
+<div class = "fullscreen" id = "fullscreen" align = "center">
+FullScreen
+</div>
+</div>
+<br>
 <div class="container">
     <p>
     <b><font size="2" color="darkred"> PRIVATE ROOM IN HOUSE</font></b>
       <br>
-    <b><font size="6">Cozy Room in City Center</font></b>
+    <b><font size="6"> TestCozy Room in City Center</font></b>
   </p>
 <br>
       <font size="3">Karlsruhe, BW, Germany</font>
@@ -92,7 +108,7 @@
     <hr>
     <div class="media">
       <div class="media-left media-top">
-        <img src="https://img.icons8.com/windows/32/000000/espresso-cup.png" class="media-object" style="width:20px">
+        <img src="https://img.icons8.com/windows/32/000000/espresso-cup.png" class="media-object" >
       </div>
       <div class="media-body">
         <h5 class="media-heading"><b>Breakfast</b></h5>
@@ -102,7 +118,7 @@
     <hr>
     <div class="media">
       <div class="media-left media-top">
-        <img src="https://img.icons8.com/windows/32/000000/marker.png" class="media-object" style="width:20px">
+        <img src="https://img.icons8.com/windows/32/000000/marker.png" class="media-object">
       </div>
       <div class="media-body">
         <h5 class="media-heading"><b>Great location</b></h5>
@@ -112,7 +128,7 @@
     <hr>
     <div class="media">
         <div class="media-left media-top">
-          <img src="https://img.icons8.com/windows/32/000000/key-security.png" class="media-object" style="width:20px">
+          <img src="https://img.icons8.com/windows/32/000000/key-security.png" class="media-object">
         </div>
         <div class="media-body">
           <h5 class="media-heading"><b>Great check-in experience</b></h5>
@@ -125,6 +141,28 @@
   <hr>
 </div>
 </div>
+
+
+<script>
+    document.getElementById("fullscreen").addEventListener("click", openFullscreen);
+    var elem = document.getElementById("images");
+   
+function openFullscreen() {
+
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+    
+    
+ </script>
+
 </body>
 </html>
 
