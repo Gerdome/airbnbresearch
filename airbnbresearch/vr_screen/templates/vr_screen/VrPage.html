@@ -60,7 +60,7 @@
 <div class="holder">
   <iframe 
   class = "frame"
-  src="http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8081/index.html" 
+  src="http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8081/index.html" 
   id = 'frame'
   onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' 
   style="height:350px;width:100%;border:none;overflow:hidden;" 
@@ -73,6 +73,7 @@
     
     </div>
 </div>
+
 
   
 <div class = "fullscreen" id = "fullscreen" align = "center">
@@ -168,6 +169,16 @@ FullScreen
      
      document.getElementById("back").style.visibility = 'visible';
      
+     var time = new Date().getTime();
+     var date = new Date(time);
+     
+     $.post("http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
+        {
+          timestamp : date.toString(),
+          page: "VR Page",
+          event: "FullScreen Open"
+        });
+     
     }
     
      function backFrame () {
@@ -178,7 +189,21 @@ FullScreen
      frame.style.width = '100%';
      frame.style.height = '350px';
      frame.style.position = 'static';
+     
+     var time = new Date().getTime();
+     var date = new Date(time);
+      
+     
+          $.post("http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
+        {
+          timestamp : date.toString(),
+          page: "VR Page",
+          event: "FullScreen Close"
+        });
+     
     }
+     
+
     
     </script>
 
