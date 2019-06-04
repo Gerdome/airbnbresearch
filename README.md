@@ -91,7 +91,7 @@ As you can see, the Air BnB Research App is already set up.
 After opening the App, you will see that for each participant a corresponding URL has been automatically created. 
 
 #### Change Configurations
-In order to change for instance the number of participants;
+In order to change for instance the number of participants:
 Inside the **360** repository, open the settings.py file and change the configurations accordingly:
 
 ```
@@ -167,9 +167,9 @@ This page is embedded via **iFrame** in our Otree **html templates**:
 
 **Gyroscope** is allowed, so that participants can navigate inside the virtual AirBnB Environment by tilting their mobile device.
 
-The **onload** parameter (??) allows additionally to scroll within the iFrame.
+The **onload** parameter allows additionally to scroll within the iFrame.
 
-### Embed (??) VR fullscreen in experimental environment.
+### Embed VR fullscreen in experimental environment.
 
 While conducting the experiment, Otree assigns new URLs to certain sessions and creates individual URLs for every participant. 
 Hence, it is not possible to open a third party URL (in this case our react-360 URL in fullscreen) and then go back to the experimental URL.
@@ -177,8 +177,28 @@ Hence, it is not possible to open a third party URL (in this case our react-360 
 In order to still be able to open the 360° environment in fullscreen mode, we dynamically adjust the size of our iFrame using clickable containers.
 This way, the participant is still inside our experimental environment while exploring the 360° images.
 
+** In Html Body**
 ```
-Code Snippets
+<div class = "fullscreen" id = "fullscreen" align = "center">
+FullScreen
+</div>
+```
+** In Html Script**
+```
+document.getElementById("fullscreen").addEventListener("click", changeFrame);
+
+ function changeFrame () {
+     frame = document.getElementById("frame")
+     frame.style.position = 'fixed';
+     frame.style.top = '0px';
+     frame.style.left = '0px';
+     frame.style.bottom = '0px';
+     frame.style.right = '0px';
+     frame.style.width = '100%';
+     frame.style.height = '100%';
+	
+     document.getElementById("back").style.visibility = 'visible';
+}
 ```
 
 
@@ -206,12 +226,12 @@ However, it only provides visibility of the participants behavior to a certain d
 To do so, we built our own **RESTful API** using the [**Django Rest Framework**](https://www.django-rest-framework.org/), that gets addressed whenever a certain behavior of the participant shall be tracked.
 
 #### Setup Django Backend
-First, we set up our django project called **bnbResearchBackend** and our django app **backend** within that project. (See Django documentation for further information)
+First, we set up our django project called **bnbResearchBackend** and our django app **backend** within that project. (See [**Django Documentation**](https://docs.djangoproject.com/en/2.2/) for further information)
 
-Then, we set up two different URLs within our backend apps' urls.py file that serve as our APIs:
+In the resulting **360-behavior** repository, we set up two different URLs within our **backend/urls.py** file that serve as our APIs:
 
-- One that gets addressed within our Otree html templates for tracking certain clicks/scrolls/touches (event).
-- And one that gets addresses within our react-360 index file for tracking the locations the participants look at (react).
+- One that gets addressed within our Otree html templates for tracking certain clicks/scrolls/touches (hosturl:8010/api/event/create/).
+- And one that gets addresses within our react-360 index file for tracking the locations the participants look at (hosturl:8010/api/react/create/).
 
 Both APIs have a **ListView** Interface for displaying the tracked data and a **CreateView** interface for tracking new behavior data.
 
@@ -224,18 +244,19 @@ urlpatterns = [
 ]
 ```
 
-Both views (connect through serializers with the models) --> See serializer documentation for further information
+Both views connect through serializers with our models. (See [serializer documentation](https://www.django-rest-framework.org/api-guide/serializers/) for further information
 
-(Zwei models anlegen mit gewuenschten Informationen)
+Our models contain the essential fields that we use for storing information in our database.
+They are created in the **backend/models.py** file
 
-In order to save the data we set up two Django models. 
+**Example model** for tracking camera ange in virtual reality:
 
-##### Event Tracker model
-- Item:
-- Event:
-##### React 360 model
-
-
+```
+class react360(models.Model):
+    timestamp = models.CharField(max_length = 100, default = '20.05.2019')
+    x_axis = models.IntegerField(default=0)
+    y_axis = models.IntegerField(default=0)
+```
 
 
 #### API call within HTML template
@@ -273,9 +294,9 @@ saveData() {
 #### How to track other events
 
 The behavior of the participants while browsing through the Air BnB App can be tracked by adding event listeners to certain containers in our html templates.
-- How to add listener to other containers  --> when clicked: new API call
 
-Give containers Ids (inside the body tags):
+
+**Give containers Ids** (inside the body tags):
 
 ```
 <div class="container" id="demo">
@@ -290,16 +311,15 @@ Give containers Ids (inside the body tags):
       </div>
      </div>
 ```
-Add Event Listener to containers and call API function when event such as **click** occurs (inside the scripts tags):
+Add **Event Listener** to containers and **call API** function when event such as **click** occurs (inside the scripts tags):
 
 ```
 document.getElementById("demo").addEventListener("click", trackEvent);
 ```
 
 Other trackers can be created by adding IDs to the areas of interest and adding event listeners such as clicks, touches, scrolls to them.
+In case other information than then ones provided through our backend models shall be tracked, the models can be adjusted or new ones can be added (also new url necessary)
 
-- Falls mehr Informationen getracked werden sollen als nur Item und Event, moeglich durch models in Django backend erweiterung und anpassen bzw. URL neu erstellen.
 
 
-### Get tracked Behavior Data
-react-behavior --> db.sqlite
+
