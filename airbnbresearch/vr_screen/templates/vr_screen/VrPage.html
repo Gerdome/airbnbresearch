@@ -60,7 +60,7 @@
 <div class="holder">
   <iframe 
   class = "frame"
-  src="http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8081/index.html" 
+  src="http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8081/index.html" 
   id = 'frame'
   onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' 
   style="height:350px;width:100%;border:none;overflow:hidden;" 
@@ -172,7 +172,7 @@ FullScreen
      var time = new Date().getTime();
      var date = new Date(time);
      
-     $.post("http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
+     $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
           timestamp : date.toString(),
           page: "VR Page",
@@ -194,7 +194,7 @@ FullScreen
      var date = new Date(time);
       
      
-          $.post("http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
+          $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
           timestamp : date.toString(),
           page: "VR Page",

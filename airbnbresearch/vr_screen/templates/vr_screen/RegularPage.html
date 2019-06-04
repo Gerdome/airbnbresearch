@@ -178,7 +178,7 @@ if (!isInFullScreen) {
       
 
   
-   $.post("http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
+   $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
           timestamp : date.toString(),
           page: "Regular Page",
@@ -205,7 +205,7 @@ function exitHandler()
     if (document.webkitIsFullScreen === false)
     {
         alert("Hello! I am an alert box!!");
-         $.post("http://ec2-35-158-125-191.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
+         $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
           timestamp :date.toString(),
           page: "Regular Page",
