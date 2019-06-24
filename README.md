@@ -5,6 +5,8 @@ This is the project for implementing an experimental setup for a behavioral stud
 
 - *Space for some screenshots and/or screen recordings* - 
 
+![alt text](Examples/Airbnb_clone_1)
+
 
 The project is structured into three parts and built accordingly with:
 
@@ -325,7 +327,8 @@ In case other information than then ones provided through our backend models sha
 
 **Set up new URLs**
 
-** Create new APIs**
+**Create new APIs**
+
 
 
 
