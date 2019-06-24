@@ -93,7 +93,7 @@ FullScreen
       <br>
       <br>
   <p>
-      <font size="2">Enter your travel dates to see the total price per night. Test Test</font>
+      <font size="2">Enter your travel dates to see the total price per night.</font>
   </p>
 <hr>
 <div class="container" id="demo">
@@ -149,9 +149,14 @@ FullScreen
     document.getElementById("back").addEventListener("click", backFrame);
     
     function trackEvent() {
-        $.post("http://ec2-18-197-31-208.eu-central-1.compute.amazonaws.com:8010/api/event/create",
+    
+    var time = new Date().getTime();
+    var date = new Date(time);
+    
+        $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/event/create",
         {
-          item: "Second Touch",
+          timestamp : date.toString(),
+          item: "demo",
           event: "Touch"
         });
     }
