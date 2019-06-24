@@ -1,4 +1,4 @@
-﻿# Implementing a mobile experiment with 360° representations
+﻿# Implementing a Mobile Experiment with 360° Representations
 
 This is the project for implementing an experimental setup for a behavioral study to examine the influence of 360° representations on customers.
 Please find the **corresponding paper [here](https://git.scc.kit.edu/yn2099/360/blob/master/airbnb_vr_paper.pdf).**
@@ -255,7 +255,7 @@ This page is embedded via **iFrame** in our Otree **html templates**:
 
 The **onload** parameter allows additionally to scroll within the iFrame.
 
-### Embed VR fullscreen in experimental environment.
+### Embed VR Fullscreen in Experimental Environment.
 
 While conducting the experiment, Otree assigns new URLs to certain sessions and creates individual URLs for every participant. 
 Hence, it is not possible to open a third party URL (in this case our react-360 URL in fullscreen) and then go back to the experimental URL.
@@ -298,7 +298,7 @@ Then open the client.js file and change the loading of the initial environment.
 
 ## Behavior Data 
 
-### Built-in Otree data
+### Built-in Otree Data
 Otree has a built-in data tracker, that allows to examine the behavior (such as time spent on each page) of the participants.
 
 In the admin interface, click on "Data" (0.0.0.0:8000/export/) to download the data as CSV or Excel.
@@ -335,7 +335,7 @@ Both views connect through serializers with our models. (See [serializer documen
 Our models contain the essential fields that we use for storing information in our database.
 They are created in the **backend/models.py** file
 
-**Example model** for tracking camera ange in virtual reality:
+**Example model** for Tracking Camera Angle in Virtual Reality:
 
 ```
 class react360(models.Model):
@@ -345,7 +345,7 @@ class react360(models.Model):
 ```
 
 
-#### API call within HTML template
+#### API Call within HTML template
 
 ```
 function trackEvent() {
@@ -356,7 +356,7 @@ function trackEvent() {
         });
     }
 ```
-#### API call within react-360
+#### API Call within react-360
 
 ```
 	RCTDeviceEventEmitter.addListener('onReceivedInputEvent', e => {
@@ -377,7 +377,7 @@ saveData() {
       .catch(error => console.log(error));  
 }
 ```
-#### How to track other events
+#### How to Track other Events
 
 The behavior of the participants while browsing through the Air BnB App can be tracked by adding event listeners to certain containers in our html templates.
 
@@ -406,12 +406,80 @@ document.getElementById("demo").addEventListener("click", trackEvent);
 Other trackers can be created by adding IDs to the areas of interest and adding event listeners such as clicks, touches, scrolls to them.
 In case other information than then ones provided through our backend models shall be tracked, the models can be adjusted or new ones can be added (also new url necessary)
 
-### How to track other data with custom models
-**Add models**
+### How to Track other Data with Custom Models
+**Add Backend Models - [models.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/models.py)**
 
-**Set up new URLs**
+```
+class newModel(models.Model):
+    timestamp = models.CharField(max_length = 100, default = '01.06.2019')
+    page = models.CharField(max_length = 100)
+    event = models.CharField(max_length = 100)
+    add_other_events = models.CharField(max_length = 100)
+
+```
+
+
+**Set up new URLs - [urls.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/urls.py)**
+
+```
+
+urlpatterns = [
+    path('react', ReactListView.as_view()),
+    path('react/create/', ReactCreateView.as_view()),
+	.
+	.
+	.
+    path('newTrack' , TrackListView.as_view()),
+    path('newTrack/create' , TrackCreateView.as_view()),
+]
+
+```
 
 **Create new APIs**
+
+[serializers.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/serializers.py)
+
+```
+from backend.models import newModel
+
+class NewTrackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = newModel
+        fields = '__all__'
+
+
+```
+
+[views.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/views.py)
+
+```
+from backend.models import react360, EventTracker, FullScreen, newModel
+from .serializers import NewTrackSerializer
+
+class TrackListView (ListAPIView):
+    queryset = newModel.objects.all()
+    serializer_class = NewTrackSerializer
+
+class TrackCreateView (CreateAPIView):
+    queryset = newModel.objects.all()
+    serializer_class = NewTrackSerializer
+```
+
+**Change URL for API Calls - [HTML Templates](https://git.scc.kit.edu/yn2099/360/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**
+
+```
+         $.post("http://hosturl:8010/api/newTrack/create/",
+        {
+          timestamp :date.toString(),
+          page: "Regular Page",
+          event: "Fullscreen Close",
+          add_other_events: "Custom Data",
+        });
+
+```
+
+
+
 
 
 
