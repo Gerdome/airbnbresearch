@@ -296,7 +296,7 @@ Then open the client.js file and change the loading of the initial environment.
  r360.compositor.setBackground(r360.getAssetURL('your_360_image.jpg'));
 ```
 
-## Behavior Data 
+## Track Behavior Data 
 
 ### Built-in Otree Data
 Otree has a built-in data tracker, that allows to examine the behavior (such as time spent on each page) of the participants.
@@ -418,6 +418,14 @@ class newModel(models.Model):
 
 ```
 
+**Register New Model - [admin.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/admin.py)**
+
+```
+from backend.models import newModel
+
+admin.site.register(newModel)
+```
+
 
 **Set up new URLs - [urls.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/urls.py)**
 
@@ -477,6 +485,11 @@ class TrackCreateView (CreateAPIView):
         });
 
 ```
+
+## Export Behavior Data
+
+Admin interface 
+
 
 
 
