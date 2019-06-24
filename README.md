@@ -320,6 +320,12 @@ document.getElementById("demo").addEventListener("click", trackEvent);
 Other trackers can be created by adding IDs to the areas of interest and adding event listeners such as clicks, touches, scrolls to them.
 In case other information than then ones provided through our backend models shall be tracked, the models can be adjusted or new ones can be added (also new url necessary)
 
+### How to track other data with custom models
+**Add models**
+
+**Set up new URLs**
+
+** Create new APIs**
 
 
 
