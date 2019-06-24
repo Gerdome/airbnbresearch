@@ -6,14 +6,14 @@ This is the project for implementing an experimental setup for a behavioral stud
 
 ### Regular Airbnb Clone
 
-<img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_1" width="200">
-> <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_2" width="200">
+<img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_2" width="200">
+> <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_1" width="200">
 
 
 ### Virtual Reality Airbnb Clone
 
-<img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/VR_Airbnb_Clone" width="200">
-
+<img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/VR_Airbnb_Clone_1" width="200">
+> <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/VR_Airbnb_Clone_2" width="200">
 
 
 
