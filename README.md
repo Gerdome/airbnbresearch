@@ -5,7 +5,7 @@ This is the project for implementing an experimental setup for a behavioral stud
 
 - *Space for some screenshots and/or screen recordings* - 
 
-![alt text](Examples/Airbnb_clone_1)
+![alt text](https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_1)
 
 
 The project is structured into three parts and built accordingly with:
