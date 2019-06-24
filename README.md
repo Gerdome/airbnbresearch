@@ -3,13 +3,12 @@
 This is the project for implementing an experimental setup for a behavioral study to examine the influence of 360° representations on customers.
 
 
-- *Space for some screenshots and/or screen recordings* - 
-
+Regular Airbnb Clone           |  Virtual Reality Airbnb Clone
+:-------------------------:|:-------------------------:
 <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_1" width="200">
+ |  <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_2" width="200">
+)
 
-Test
-
-![](https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_1)
 
 
 The project is structured into three parts and built accordingly with:
