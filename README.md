@@ -1,7 +1,7 @@
-﻿# Implementing a mobile experiment with  360° representations
+﻿# Implementing a mobile experiment with 360° representations
 
 This is the project for implementing an experimental setup for a behavioral study to examine the influence of 360° representations on customers.
-Please find the corresponding paper [here](https://git.scc.kit.edu/yn2099/360/blob/master/airbnb_vr_paper.pdf)
+Please find the **corresponding paper [here](https://git.scc.kit.edu/yn2099/360/blob/master/airbnb_vr_paper.pdf).**
 
 ## Examples
 
@@ -27,7 +27,7 @@ The project is structured into three parts and built accordingly with:
 
 ## Getting Started
 
-As of now (May 2019), the three different parts are pushed to three seperate Gitlab repositories: 
+As of now (June 2019), the three different parts are pushed to three seperate Gitlab repositories: 
 * **360** - This repository (Otree)
 * [360-react](https://git.scc.kit.edu/yn2099/360-react) (react360)
 * [360-behavior](https://git.scc.kit.edu/yn2099/360-behavior) (Django)
@@ -47,7 +47,7 @@ To do so, every event such as touch, swipe, looking at the pictures and explorin
 
 First, clone all individual repositories ([360](https://git.scc.kit.edu/yn2099/360),  [360-react](https://git.scc.kit.edu/yn2099/360-react), [360-behavior](https://git.scc.kit.edu/yn2099/360-behavior)).
 
-It is recommended to create virtual environments for the **python** projects (Otree and django).
+It is recommended to create virtual environments for the **python** projects (Otree and Django).
 
 ```
 python -m venv 360env
@@ -65,7 +65,81 @@ In order to install the required dependencies for **react360**, cd to the packag
 npm install
 ```
 
-## Running on development server
+### Change Host URL
+Before running the different projects, the hosts' IP adress needs to be specified within several files, so that the correct URLs are used:
+
+#### [settings.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/bnbResearchBackend/settings.py) within Django Backend Project
+```
+ALLOWED_HOSTS = [
+    'hosturl'
+]
+
+```
+#### [index.js](https://git.scc.kit.edu/yn2099/360-react/blob/master/index.html) within React 360 Project
+
+```
+saveData() {
+
+var time = new Date().getTime();
+var date = new Date(time);
+
+  const message = { 
+    
+    timestamp : date.toString(),
+    x_axis:  Number((this.state.aov[0]).toFixed(0)),
+    y_axis: Number((this.state.aov[1]).toFixed(0)),
+    
+    }  
+
+  
+  axios
+    .post('http://hosturl:8010/api/react/create/', message)
+    .then(response => {  
+    })
+    .catch(error => console.log(error));  
+}
+```
+
+#### [HTML Templates](https://git.scc.kit.edu/yn2099/360/tree/master/airbnbresearch/vr_screen/templates/vr_screen) within oTree Project
+
+**Template for Regular Airbnb Page (RegularPage.html)**
+
+```
+   $.post("http://hosturl:8010/api/fullscreen/create/",
+        {
+          timestamp : date.toString(),
+          page: "Regular Page",
+          event: "Fullscreen open"
+        });
+```
+
+**Template for Virtual Reality Airbnb Page (VrPage.html)**
+
+```
+<iframe 
+  class = "frame"
+  src="http://hosturl:8081/index.html" 
+  id = 'frame'
+  onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));' 
+  style="height:350px;width:100%;border:none;overflow:hidden;" 
+  allow="gyroscope; accelerometer"
+  ></iframe> 
+```
+
+
+```
+     $.post("http://hosturl:8010/api/fullscreen/create/",
+        {
+          timestamp : date.toString(),
+          page: "VR Page",
+          event: "FullScreen Open"
+        });
+     
+    }
+```
+
+
+## Running on Development Server
 
 We need three seperate development server for testing our experiment for the first time. 
 
@@ -189,13 +263,13 @@ Hence, it is not possible to open a third party URL (in this case our react-360 
 In order to still be able to open the 360° environment in fullscreen mode, we dynamically adjust the size of our iFrame using clickable containers.
 This way, the participant is still inside our experimental environment while exploring the 360° images.
 
-** In Html Body**
+**In Html Body**
 ```
 <div class = "fullscreen" id = "fullscreen" align = "center">
 FullScreen
 </div>
 ```
-** In Html Script**
+**In Html Script**
 ```
 document.getElementById("fullscreen").addEventListener("click", changeFrame);
 
