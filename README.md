@@ -1,7 +1,7 @@
 ﻿# Implementing a mobile experiment with  360° representations
 
 This is the project for implementing an experimental setup for a behavioral study to examine the influence of 360° representations on customers.
-Please find the corresponding paper [here] (https://git.scc.kit.edu/yn2099/360/blob/master/airbnb_vr_paper.pdf)
+Please find the corresponding paper [here](https://git.scc.kit.edu/yn2099/360/blob/master/airbnb_vr_paper.pdf)
 
 ## Examples
 
