@@ -255,7 +255,7 @@ This page is embedded via **iFrame** in our Otree **html templates**:
 
 The **onload** parameter allows additionally to scroll within the iFrame.
 
-### Embed VR Fullscreen in Experimental Environment.
+### Embed VR Fullscreen in Experimental Environment
 
 While conducting the experiment, Otree assigns new URLs to certain sessions and creates individual URLs for every participant. 
 Hence, it is not possible to open a third party URL (in this case our react-360 URL in fullscreen) and then go back to the experimental URL.
@@ -423,7 +423,10 @@ class newModel(models.Model):
 ```
 from backend.models import newModel
 
-admin.site.register(newModel)
+class NewModelList(admin.ModelAdmin):
+    list_display= ('timestamp', 'page', 'event','add_other_events')
+
+admin.site.register(newModel, NewModelList)
 ```
 
 
