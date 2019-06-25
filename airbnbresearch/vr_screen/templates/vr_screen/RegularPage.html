@@ -204,7 +204,6 @@ function exitHandler()
 
     if (document.webkitIsFullScreen === false)
     {
-        alert("Hello! I am an alert box!!");
          $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
           timestamp :date.toString(),
@@ -215,11 +214,11 @@ function exitHandler()
     }
     else if (document.mozFullScreen === false)
     {
-        alert("Hello! I am an alert box!!");
+
     }
     else if (document.msFullscreenElement === false)
     {
-        alert("Hello! I am an alert box!!");
+
     }
 }  
     
