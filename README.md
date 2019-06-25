@@ -231,7 +231,7 @@ Each Page is linked to an **html** template with the matching name inside the **
 **RegularPage.html** tries to clone the Air BnB Layout with basic **html bootstrap** containers.
 **VrPage.html**  adds the virtual reality representation by embedding our **react-360** world via **iFrame**.
 
-By changing the **templates**, you can adjust the look and feel of your experiment.
+By changing the **[templates](https://git.scc.kit.edu/yn2099/360/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**, you can adjust the look and feel of your experiment.
 
 As you can see, **forms** (used for questionnaires as well) can be passed within the Page classes and are rendered automatically.
 
