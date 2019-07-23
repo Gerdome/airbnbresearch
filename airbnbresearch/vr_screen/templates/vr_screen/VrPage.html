@@ -1,3 +1,6 @@
+<!-- This is the HTML Template for the page depicting 360 images inside the Airbnb Layout -->
+  
+
 {% extends "global/Page.html" %}
 
 {% load otree %}
@@ -14,6 +17,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  
+<!-- defining the styles -->
+
   <style>    
     /* Set black background color, white text and some padding */
     footer {
@@ -44,6 +51,7 @@
     border: 2px solid black;
     }
     
+    
 #rcorners1 {
   border-radius: 10px;
   background: grey;
@@ -56,6 +64,7 @@
 </head>
 <body>
 
+<!--Change URL of IFrame to Host URL-->
 
 <div class="holder">
   <iframe 
@@ -75,10 +84,12 @@
 </div>
 
 
-  
+<!-- Create Button for entering fullscreen mode. Use previous defined style and add Event Listener to Object in <script> -->
 <div class = "fullscreen" id = "fullscreen" align = "center">
 FullScreen
 </div>
+
+<!-- Replicate Airbnb Design by using HTML containers -->
   
 <div class="container">
     <p>
@@ -144,6 +155,8 @@ FullScreen
 </div>
 
 <script>
+
+
     document.getElementById("demo").addEventListener("click", trackEvent);
     document.getElementById("fullscreen").addEventListener("click", changeFrame);
     document.getElementById("back").addEventListener("click", backFrame);
