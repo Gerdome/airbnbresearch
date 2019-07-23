@@ -157,9 +157,15 @@ FullScreen
 </div>
 </div>
 
-<script>
-
 <!-- Add Event Listener to objects and call functions accordingly  -->
+
+<!-- When clicked on Full screen button: Change size of iFrame to full size & set back button to visible  -->
+
+<!-- When clicked on Back button: hide back button and set size of iFrame back to original size  -->
+
+<!-- Track timestamp of events and save data through Django REST API  -->
+
+<script>
 
     document.getElementById("demo").addEventListener("click", trackEvent);
     document.getElementById("fullscreen").addEventListener("click", changeFrame);
@@ -178,7 +184,7 @@ FullScreen
         });
     }
     
-<!-- When clicked on Full screen button: Change size of iFrame to full size & set back button to visible  -->
+
     
     function changeFrame () {
      frame = document.getElementById("frame")
@@ -191,13 +197,10 @@ FullScreen
      frame.style.height = '100%';
      
      document.getElementById("back").style.visibility = 'visible';
-     
-<!-- Track time of event  -->
 
      var time = new Date().getTime();
      var date = new Date(time);
      
-<!-- And save data through Django REST API  -->
      
      $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
@@ -208,7 +211,6 @@ FullScreen
      
     }
     
-<!-- When clicked on Back button: hide back button and set size of iFrame back to original size  -->
 
      function backFrame () {
      
@@ -219,7 +221,6 @@ FullScreen
      frame.style.height = '350px';
      frame.style.position = 'static';
      
-<!-- Track timestamp and save data through Django REST API  -->
      
      var time = new Date().getTime();
      var date = new Date(time);

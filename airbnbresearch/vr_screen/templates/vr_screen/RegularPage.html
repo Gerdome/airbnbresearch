@@ -155,22 +155,34 @@ FullScreen
 </div>
 
 
+<!-- Add Event Listener to objects and call functions accordingly  -->
+
+<!-- When open fullscreen: Aler User to tilt smartphone into landscape mode & change to fullscreen mode  -->
+
+<!-- Set fullscreen settings for different possible browsers  -->
+
+<!-- Track timestamp of opening fullscreen and save data through Django REST API  -->
+
+<!-- Is user leaves fullscreen mode: Call exitHandler Function  -->
+
+<!-- Track timestamp of closing fullscreen and save data through Django REST API  -->
+
+
+
 <script>
 
-<!-- Add Event Listener to objects and call functions accordingly  -->
+
 
     document.getElementById("fullscreen").addEventListener("click", openFullscreen);
     var elem = document.getElementById("images");
     
     
 
-<!-- When open fullscreen: Aler User to tilt smartphone into landscape mode & change to fullscreen mode  -->
 
 function openFullscreen() {
 
         alert("Tilt your smartphone to landscape mode");
         
-<!-- Set fullscreen settings for different possible browsers  -->
 
  var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
         (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
@@ -189,8 +201,6 @@ if (!isInFullScreen) {
   }}    
 
 
-  
-<!-- Track timestamp of opening fullscreen and save data through Django REST API  -->
 
     var time = new Date().getTime();
     var date = new Date(time);
@@ -205,8 +215,6 @@ if (!isInFullScreen) {
         });
 }
 
-<!-- Is user leaves fullscreen mode: Call exitHandler Function  -->
-
 if (document.addEventListener)
 {
     document.addEventListener('webkitfullscreenchange', exitHandler, false);
@@ -215,7 +223,6 @@ if (document.addEventListener)
     document.addEventListener('MSFullscreenChange', exitHandler, false);
 }
 
-<!-- Track timestamp of closing fullscreen and save data through Django REST API  -->
 
 function exitHandler()
 {
