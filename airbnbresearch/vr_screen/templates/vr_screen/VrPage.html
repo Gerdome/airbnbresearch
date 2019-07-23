@@ -67,6 +67,7 @@
 <!--Change URL of IFrame to Host URL-->
 
 <div class="holder">
+
   <iframe 
   class = "frame"
   src="http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8081/index.html" 
@@ -75,12 +76,14 @@
   style="height:350px;width:100%;border:none;overflow:hidden;" 
   allow="gyroscope; accelerometer"
   ></iframe> 
-    <div class="backbutton" id = 'back' align = 'center'>
-    
-   <b> <p text-align='center' id="rcorners1">Back</p> </b>
-
-    
-    </div>
+  
+  <!-- Create Back Button for closing fullscreen mode. Use previous defined style and add Event Listener to Object in <script> -->
+  <div class="backbutton" id = 'back' align = 'center'>  
+   <b> 
+   <p text-align='center' id="rcorners1">Back</p> 
+   </b>
+  </div>
+  
 </div>
 
 
@@ -156,6 +159,7 @@ FullScreen
 
 <script>
 
+<!-- Add Event Listener to objects and call functions accordingly  -->
 
     document.getElementById("demo").addEventListener("click", trackEvent);
     document.getElementById("fullscreen").addEventListener("click", changeFrame);
@@ -174,6 +178,7 @@ FullScreen
         });
     }
     
+<!-- When clicked on Full screen button: Change size of iFrame to full size & set back button to visible  -->
     
     function changeFrame () {
      frame = document.getElementById("frame")
@@ -187,8 +192,12 @@ FullScreen
      
      document.getElementById("back").style.visibility = 'visible';
      
+<!-- Track time of event  -->
+
      var time = new Date().getTime();
      var date = new Date(time);
+     
+<!-- And save data through Django REST API  -->
      
      $.post("http://ec2-3-121-239-161.eu-central-1.compute.amazonaws.com:8010/api/fullscreen/create/",
         {
@@ -199,6 +208,8 @@ FullScreen
      
     }
     
+<!-- When clicked on Back button: hide back button and set size of iFrame back to original size  -->
+
      function backFrame () {
      
      document.getElementById("back").style.visibility = 'hidden';
@@ -207,6 +218,8 @@ FullScreen
      frame.style.width = '100%';
      frame.style.height = '350px';
      frame.style.position = 'static';
+     
+<!-- Track timestamp and save data through Django REST API  -->
      
      var time = new Date().getTime();
      var date = new Date(time);

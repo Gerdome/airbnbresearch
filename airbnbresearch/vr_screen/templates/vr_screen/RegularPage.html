@@ -41,10 +41,12 @@
 </head>
 <body>
 
+<!--Replicate Airbnb Design by using HTML containers-->
+
        <div class="container" 
                   id = 'images'>
                      
-                     
+    <!-- Use Carousels for depicting regular images-->
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
@@ -154,13 +156,21 @@ FullScreen
 
 
 <script>
+
+<!-- Add Event Listener to objects and call functions accordingly  -->
+
     document.getElementById("fullscreen").addEventListener("click", openFullscreen);
     var elem = document.getElementById("images");
     
     
+
+<!-- When open fullscreen: Aler User to tilt smartphone into landscape mode & change to fullscreen mode  -->
+
 function openFullscreen() {
 
         alert("Tilt your smartphone to landscape mode");
+        
+<!-- Set fullscreen settings for different possible browsers  -->
 
  var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
         (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
@@ -177,8 +187,11 @@ if (!isInFullScreen) {
   } else if (elem.msRequestFullscreen) { /* IE/Edge */
     elem.msRequestFullscreen();
   }}    
+
+
   
-  
+<!-- Track timestamp of opening fullscreen and save data through Django REST API  -->
+
     var time = new Date().getTime();
     var date = new Date(time);
       
@@ -192,6 +205,7 @@ if (!isInFullScreen) {
         });
 }
 
+<!-- Is user leaves fullscreen mode: Call exitHandler Function  -->
 
 if (document.addEventListener)
 {
@@ -200,6 +214,8 @@ if (document.addEventListener)
     document.addEventListener('fullscreenchange', exitHandler, false);
     document.addEventListener('MSFullscreenChange', exitHandler, false);
 }
+
+<!-- Track timestamp of closing fullscreen and save data through Django REST API  -->
 
 function exitHandler()
 {
