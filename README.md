@@ -75,7 +75,7 @@ ALLOWED_HOSTS = [
 ]
 
 ```
-#### [index.js](https://github.com/Gerdome/react360/blob/master/index.html) within React 360 Project
+#### [index.js](https://github.com/Gerdome/react360/blob/master/index.js) within React 360 Project
 
 ```
 saveData() {
