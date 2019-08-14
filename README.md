@@ -28,9 +28,9 @@ The project is structured into three parts and built accordingly with:
 ## Getting Started
 
 As of now (June 2019), the three different parts are pushed to three seperate Gitlab repositories: 
-* **360** - This repository (Otree)
-* [360-react](https://github.com/Gerdome/react360) (react360)
-* [360-behavior](https://github.com/Gerdome/airbnbresearch-backend) (Django)
+* **airbnbresearch** - This repository (Otree)
+* [react360](https://github.com/Gerdome/react360) (react360)
+* [airbnbresearch-backend](https://github.com/Gerdome/airbnbresearch-backend) (Django)
 
 ### Interplay between Otree, React360 and Django
 
@@ -45,7 +45,7 @@ To do so, every event such as touch, swipe, looking at the pictures and explorin
 
 ### Initial Setup
 
-First, clone all individual repositories ([360](https://github.com/Gerdome/airbnbresearch),  [360-react](https://github.com/Gerdome/react360), [360-behavior](https://github.com/Gerdome/airbnbresearch-backend)).
+First, clone all individual repositories ([airbnbresearch](https://github.com/Gerdome/airbnbresearch),  [react360](https://github.com/Gerdome/react360), [airbnbresearch-backend](https://github.com/Gerdome/airbnbresearch-backend)).
 
 It is recommended to create virtual environments for the **python** projects (Otree and Django).
 
@@ -59,7 +59,7 @@ A list of the required dependencies can be found in each repository.
 pip install -r requirements.txt
 ```
 
-In order to install the required dependencies for **react360**, cd to the package.json file inside the **360-react** repository and:
+In order to install the required dependencies for **react360**, cd to the package.json file inside the **react360** repository and:
 
 ```
 npm install
@@ -68,7 +68,7 @@ npm install
 ### Change Host URL
 Before running the different projects, the hosts' IP adress needs to be specified within several files, so that the correct URLs are used:
 
-#### [settings.py](https://github.com/Gerdome/airbnbresearch-backend/settings.py) within Django Backend Project
+#### [settings.py](https://github.com/Gerdome/airbnbresearch-backend/blob/master/bnbResearchBackend/settings.py) within Django Backend Project
 ```
 ALLOWED_HOSTS = [
     'hosturl'
@@ -145,7 +145,7 @@ We need three seperate development server for testing our experiment for the fir
 
 ### Otree
 
-Inside the **360** repository, cd to the manage.py file and:
+Inside the **airbnbresearch** repository, cd to the manage.py file and:
 
 ```
 otree devserver 0.0.0.0:8000
@@ -153,7 +153,7 @@ otree devserver 0.0.0.0:8000
 
 ### React360
 
-Inside the **360-react** repository, cd to the client.js file and:
+Inside the **react360** repository, cd to the client.js file and:
 
 ```
 npm start
@@ -163,7 +163,7 @@ This will render your 360° image under http://hosturl:8081/index.html.
 
 ### Django
 
-Inside the **360-behavior** repository, cd to the manage.py file and:
+Inside the **airbnbresearch-backend** repository, cd to the manage.py file and:
 
 ```
 python manage.py runserver 0.0.0.0:8010
@@ -178,7 +178,7 @@ After opening the App, you will see that for each participant a corresponding UR
 
 #### Change Configurations
 In order to change for instance the number of participants:
-Inside the **360** repository, open the settings.py file and change the configurations accordingly:
+Inside the **airbnbresearch** repository, open the settings.py file and change the configurations accordingly:
 
 ```
 SESSION_CONFIGS = [
@@ -229,7 +229,7 @@ page_sequence = [
 Each Page is linked to an **html** template with the matching name inside the **vr_screen/templates/vr_screen** folder.
 
 **RegularPage.html** tries to clone the Air BnB Layout with basic **html bootstrap** containers.
-**VrPage.html**  adds the virtual reality representation by embedding our **react-360** world via **iFrame**.
+**VrPage.html**  adds the virtual reality representation by embedding our **react360** world via **iFrame**.
 
 By changing the **[templates](https://github.com/Gerdome/airbnbresearch/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**, you can adjust the look and feel of your experiment.
 
@@ -289,7 +289,7 @@ document.getElementById("fullscreen").addEventListener("click", changeFrame);
 
 
 ### Change Images
-Inside the **360-react** repository, save your 360° images in the **static_assets/** folder.
+Inside the **react360** repository, save your 360° images in the **static_assets/** folder.
 
 Then open the client.js file and change the loading of the initial environment.
 ```
