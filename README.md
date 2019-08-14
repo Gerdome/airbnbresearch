@@ -13,8 +13,8 @@ Please find the **corresponding paper [here](https://git.scc.kit.edu/yn2099/360/
 
 ### Virtual Reality Airbnb Clone
 
-<img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/VR_Airbnb_Clone_1" width="200">
-> <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/VR_Airbnb_Clone_2" width="200">
+<img src="https://github.com/Gerdome/airbnbresearch/raw/master/Examples/VR_Airbnb_Clone_1" width="200">
+> <img src="https://github.com/Gerdome/airbnbresearch/raw/master/Examples/VR_Airbnb_Clone_2" width="200">
 
 
 
@@ -29,8 +29,8 @@ The project is structured into three parts and built accordingly with:
 
 As of now (June 2019), the three different parts are pushed to three seperate Gitlab repositories: 
 * **360** - This repository (Otree)
-* [360-react](https://git.scc.kit.edu/yn2099/360-react) (react360)
-* [360-behavior](https://git.scc.kit.edu/yn2099/360-behavior) (Django)
+* [360-react](https://github.com/Gerdome/react360) (react360)
+* [360-behavior](https://github.com/Gerdome/airbnbresearch-backend) (Django)
 
 ### Interplay between Otree, React360 and Django
 
@@ -45,7 +45,7 @@ To do so, every event such as touch, swipe, looking at the pictures and explorin
 
 ### Initial Setup
 
-First, clone all individual repositories ([360](https://git.scc.kit.edu/yn2099/360),  [360-react](https://git.scc.kit.edu/yn2099/360-react), [360-behavior](https://git.scc.kit.edu/yn2099/360-behavior)).
+First, clone all individual repositories ([360](https://github.com/Gerdome/airbnbresearch),  [360-react](https://github.com/Gerdome/react360), [360-behavior](https://github.com/Gerdome/airbnbresearch-backend)).
 
 It is recommended to create virtual environments for the **python** projects (Otree and Django).
 
@@ -68,14 +68,14 @@ npm install
 ### Change Host URL
 Before running the different projects, the hosts' IP adress needs to be specified within several files, so that the correct URLs are used:
 
-#### [settings.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/bnbResearchBackend/settings.py) within Django Backend Project
+#### [settings.py](https://github.com/Gerdome/airbnbresearch-backend/settings.py) within Django Backend Project
 ```
 ALLOWED_HOSTS = [
     'hosturl'
 ]
 
 ```
-#### [index.js](https://git.scc.kit.edu/yn2099/360-react/blob/master/index.html) within React 360 Project
+#### [index.js](https://github.com/Gerdome/react360/blob/master/index.html) within React 360 Project
 
 ```
 saveData() {
@@ -100,7 +100,7 @@ var date = new Date(time);
 }
 ```
 
-#### [HTML Templates](https://git.scc.kit.edu/yn2099/360/tree/master/airbnbresearch/vr_screen/templates/vr_screen) within oTree Project
+#### [HTML Templates](https://github.com/Gerdome/airbnbresearch/tree/master/airbnbresearch/vr_screen/templates/vr_screen) within oTree Project
 
 **Template for Regular Airbnb Page (RegularPage.html)**
 
@@ -231,7 +231,7 @@ Each Page is linked to an **html** template with the matching name inside the **
 **RegularPage.html** tries to clone the Air BnB Layout with basic **html bootstrap** containers.
 **VrPage.html**  adds the virtual reality representation by embedding our **react-360** world via **iFrame**.
 
-By changing the **[templates](https://git.scc.kit.edu/yn2099/360/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**, you can adjust the look and feel of your experiment.
+By changing the **[templates](https://github.com/Gerdome/airbnbresearch/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**, you can adjust the look and feel of your experiment.
 
 As you can see, **forms** (used for questionnaires as well) can be passed within the Page classes and are rendered automatically.
 
@@ -407,7 +407,7 @@ Other trackers can be created by adding IDs to the areas of interest and adding 
 In case other information than then ones provided through our backend models shall be tracked, the models can be adjusted or new ones can be added (also new url necessary)
 
 ### How to Track other Data with Custom Models
-**Add Backend Models - [models.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/models.py)**
+**Add Backend Models - [models.py](https://github.com/Gerdome/airbnbresearch-backend/blob/master/backend/models.py)**
 
 ```
 class newModel(models.Model):
@@ -418,7 +418,7 @@ class newModel(models.Model):
 
 ```
 
-**Register New Model - [admin.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/admin.py)**
+**Register New Model - [admin.py](https://github.com/Gerdome/airbnbresearch-backend/blob/master/backend/admin.py)**
 
 ```
 from backend.models import newModel
@@ -430,7 +430,7 @@ admin.site.register(newModel, NewModelList)
 ```
 
 
-**Set up new URLs - [urls.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/urls.py)**
+**Set up new URLs - [urls.py](https://github.com/Gerdome/airbnbresearch-backend/blob/master/backend/urls.py)**
 
 ```
 
@@ -448,7 +448,7 @@ urlpatterns = [
 
 **Create new APIs**
 
-[serializers.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/serializers.py)
+[serializers.py](https://github.com/Gerdome/airbnbresearch-backend/blob/master/backend/serializers.py)
 
 ```
 from backend.models import newModel
@@ -461,7 +461,7 @@ class NewTrackSerializer(serializers.ModelSerializer):
 
 ```
 
-[views.py](https://git.scc.kit.edu/yn2099/360-behavior/blob/master/backend/views.py)
+[views.py](https://github.com/Gerdome/airbnbresearch-backend/blob/master/backend/views.py)
 
 ```
 from backend.models import react360, EventTracker, FullScreen, newModel
@@ -476,7 +476,7 @@ class TrackCreateView (CreateAPIView):
     serializer_class = NewTrackSerializer
 ```
 
-**Change URL for API Calls - [HTML Templates](https://git.scc.kit.edu/yn2099/360/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**
+**Change URL for API Calls - [HTML Templates](https://github.com/Gerdome/airbnbresearch/tree/master/airbnbresearch/vr_screen/templates/vr_screen)**
 
 ```
          $.post("http://hosturl:8010/api/newTrack/create/",
