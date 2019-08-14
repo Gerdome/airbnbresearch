@@ -7,8 +7,8 @@ Please find the **corresponding paper [here](https://git.scc.kit.edu/yn2099/360/
 
 ### Regular Airbnb Clone
 
-<img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_2" width="200">
-> <img src="https://git.scc.kit.edu/yn2099/360/raw/master/Examples/Airbnb_clone_1" width="200">
+<img src="https://github.com/Gerdome/airbnbresearch/raw/master/Examples/Airbnb_clone_2" width="200">
+> <img src="https://github.com/Gerdome/airbnbresearch/raw/master/Examples/Airbnb_clone_1" width="200">
 
 
 ### Virtual Reality Airbnb Clone
